@@ -1,0 +1,41 @@
+<table class="calendar" >
+  <thead  >
+  <tr class="header" >
+    <th scope="col" class="calendar-header"></th>
+    <th scope="col" *ngFor="let date of weekCurrent.days">
+      <div class="table-header" >
+        <div class="table-header-day-week">{{date.date | date:'EE'}}</div>
+        <div class="table-header-day-month">
+          <div class="day-month-style" [ngClass]="{'day-month-style-active':date.active}" >
+            {{date.date | date: 'dd'}}
+          </div>
+
+        </div>
+      </div>
+    </th>
+  </tr>
+  <tr class="subheader"  >
+    <th class="subheader-zone" >
+        <span>GMT+2</span>
+    </th>
+    <th scope="col" *ngFor="let date of weekCurrent.days" class="calendar-subheader" >
+
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let hour of weekCurrent.hours; let i=index" class="content">
+    <td class="content-hours" >
+      <span *ngIf="i>0">
+        {{hour | date:'hh a'}}
+      </span>
+
+    </td>
+    <td scope="col" *ngFor="let date of weekCurrent.days">!</td>
+  </tr>
+
+  </tbody>
+</table>
+ <!--{{weekCurrent.now | date: 'dd.MM.yy'}}
+ {{weekCurrent.from_date | date: 'dd.MM.yy'}}
+ {{weekCurrent.to_date | date: 'dd.MM.yy'}}-->
