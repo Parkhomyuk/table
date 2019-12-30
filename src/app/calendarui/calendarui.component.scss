@@ -1,117 +1,148 @@
-.calendar{
-  width: 97vw;
-  margin-left: 2.5vw;
-  thead{
-    color: #353535;
-
-
-    .header{
-
-
-      .calendar-header{
-        width: 1rem;
-      }
-      th{
-        border-color: transparent;
-        .table-header{
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: center;
-          align-items: center;
-          flex-grow: 1;
-          flex-basis: 0;
-          border: 0;
-          .table-header-day-week{
-            font-size: 0.75rem;
-          }
-          .table-header-day-month{
-            cursor: pointer;
-            font-size: 1.7rem;
-            font-weight: 400;
-            .day-month-style{
-              width: 3rem;
-              height: 3rem;
-              display: flex;
-              flex-direction: column;
-              flex-wrap: nowrap;
-              justify-content: center;
-              align-items: center;
-              border-radius: 50%;
+.wrapper{
+  width: 80vw;
+  
+  .calendar-header-main{
+    width: inherit;
+    height: 5vh;
+    margin-left: 18vw;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    background-color: white;
+    thead{
+      color: #353535;
+  
+  
+      .header{
+  
+  
+        .calendar-header{
+          width: 1rem;
+        }
+        th{
+          border-color: transparent;
+          width: 10vw;
+          .table-header{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            flex-basis: 0;
+            border: 0;
+            .table-header-day-week{
+              font-size: 0.5rem;
             }
-            .day-month-style:hover{
-              background-color: rgba(173, 173, 173, 0.31);
-
-            }
-            .day-month-style-active{
-              background-color: rgba(0, 0, 246, 0.63);
-              color: white;
+            .table-header-day-month{
+              cursor: pointer;
+              font-size: 1.4rem;
+              font-weight: 400;
+              .day-month-style{
+                width: 2.5rem;
+                height: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+              }
+              .day-month-style:hover{
+                background-color: rgba(173, 173, 173, 0.31);
+  
+              }
+              .day-month-style-active{
+                background-color: rgba(0, 0, 246, 0.63);
+                color: white;
+              }
             }
           }
         }
       }
-    }
-    .subheader{
-       width: 0.25rem;
-      .calendar-subheader{
-        height: 1rem;
-        border-bottom: 1px solid #353535;
-        border-right: 1px solid #353535;
-        font-size: 0.6rem;
-        font-weight: 400;
-        text-align: center;
-      }
-      .subheader-zone{
-        text-align: right;
-        margin-right: 0.2rem;
-        border-bottom: 1px solid #353535;
-        border-right: 1px solid #353535;
-        font-size: 0.5rem;
-        position: relative;
-
-        span{
-          position: absolute;
-          left: -2.2rem;
-          top:0;
+      .subheader{
+         width: 0.25rem;
+        .calendar-subheader{
+          height: 1rem;
+          border-bottom: 1px solid #353535;
+          border-right: 1px solid #353535;
+          font-size: 0.6rem;
+          font-weight: 400;
+          text-align: center;
         }
-      }
-    }
-
-  }
-  tbody{
-
-    tr{
-      td{
-        border: 1px solid grey;
-        height: 6vh;
-      }
-    }
-    .content{
-
-      .content-hours{
-        position: relative;
-        border-bottom: 1px solid #353535;
-        border-left: 0px solid #353535;
-
-        span{
-          position: absolute;
+        .subheader-zone{
+          text-align: right;
+          margin-right: 0.2rem;
+          border-bottom: 1px solid #353535;
+          border-right: 1px solid #353535;
           font-size: 0.5rem;
-          left: -2rem;
-          top:-0.5rem;
-
+          position: relative;
+  
+          span{
+            position: absolute;
+            left: -2.2rem;
+            top:0;
+            z-index: 2;
+          }
         }
-
       }
+  
     }
-    .content:last-child{
-      .content-hours{
-        position: relative;
-        border-bottom: 0px solid #353535;
-        border-left: 0px solid #353535;
-
-
-
-      }
-    }
+  
+    
   }
+  .calendar-content-main{
+    width: inherit;
+    height: 5vh;
+    margin-left: 18vw;
+    position: absolute;
+    top: 9.4vh;
+    z-index: 0;
+    tbody{
+  
+      tr{
+        td{
+          width: 10vw;
+          border: 1px solid grey;
+          height: 6vh;
+        }
+      }
+      .content{
+  
+        .content-hours{
+          width: 1rem;
+          position: relative;
+          border-bottom: 1px solid #353535;
+          border-left: 0px solid #353535;
+          position: relative;
+          span{
+            position: absolute;
+            font-size: 0.5rem;
+            left: -2rem;
+            top:-0.5rem;
+            z-index: 1;
+          }
+  
+        }
+      }
+      .content:last-child{
+        .content-hours{
+          position: relative;
+          border-bottom: 0px solid #353535;
+          border-left: 0px solid #353535;
+  
+  
+  
+        }
+      }
+    }
+    
+  }  
+  .calendar-content-main tbody tr:first-child {
+    td{
+      border-top: 0px solid grey;
+    }
+    
+  }
+  
 }

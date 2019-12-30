@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import * as moment from 'moment';
 import 'moment/locale/en-gb';
 
@@ -8,25 +8,30 @@ import 'moment/locale/en-gb';
   styleUrls: ['./calendarui.component.scss']
 })
 export class CalendaruiComponent implements OnInit {
+@HostListener("mousedown",['$event']) onMouseOver(event:any){}
+@HostListener('mouseup',['$event']) onMouseOut(event:any) {
+   
+}
   weekCurrent:any={
     now :null,
     from_date: null,
     to_date: null,
     days:[],
-    hours:[]
+    hours:[],
+    minutesHour:[]
 
   }
   weekArray: any[]=[];
 
-  constructor() {
+  constructor(private el: ElementRef) {
 
   }
 
   ngOnInit() {
   this.weekCurrent.now = moment();
     console.log(this.weekCurrent.now)
-  this.weekCurrent.from_date = moment().clone().startOf('week');
-  this.weekCurrent.to_date = moment().clone().endOf('week');
+  this.weekCurrent.from_date = this.weekCurrent.now.clone().startOf('week');
+  this.weekCurrent.to_date = this.weekCurrent.now.clone().endOf('week');
 
     for (let i = 0; i <= 6; i++) {
       console.log({active: moment(this.weekCurrent.from_date).add(i, 'days').isSame(this.weekCurrent.now), curr: moment(this.weekCurrent.from_date).add(i, 'days'), now: this.weekCurrent.now});
@@ -36,6 +41,34 @@ export class CalendaruiComponent implements OnInit {
     for (let i = 0; i <24; i++) {
       this.weekCurrent.hours.push(moment().startOf('day').add(i,'hours'));
     }
+    for (let i = 0; i <60; i++) {
+      this.weekCurrent.minutesHour.push(i);
+    }
   }
-
+  onMinute(min,hour ,date){
+    console.log('hour', hour);
+    // console.log('date', date.add(min,'minutes'));
+      console.log('up', moment(date.date).add(hour,'hours').add(min,'minutes').format("hh:mm") );
+     
+  }
+  onMinuteUp(min,hour,date){
+    // console.log('min', min);
+    // console.log('date', date.add(min,'minutes'));
+    console.log('up', moment(date.date).format("hh") );
+     console.log('up', moment(date.date).add(hour,'hours').add(min,'minutes').format("hh:mm") );
+     
+  }
+  moveTimeline(line){
+    if(line=='right'){
+      this.weekCurrent.now.add(1,'weeks');
+      this.weekCurrent.from_date = this.weekCurrent.now.clone().startOf('week');
+      this.weekCurrent.to_date = this.weekCurrent.now.clone().endOf('week');
+      console.log('active',this.weekCurrent.now.format('dd.MM.YY'));
+      this.weekCurrent.days=[];
+      for (let i = 0; i <= 6; i++) {
+         
+        this.weekCurrent.days.push({date:moment(this.weekCurrent.from_date).add(i, 'days'), active: moment(this.weekCurrent.from_date).add(i, 'days').isSame(this.weekCurrent.now,"day")});
+      }
+    }
+  }
 }
