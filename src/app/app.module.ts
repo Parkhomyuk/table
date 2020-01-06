@@ -4,24 +4,32 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendaruiComponent } from './calendarui/calendarui.component';
-import { Calendar2Component } from './calendar2/calendar2.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { GoogleComponent } from './google/google.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatMenuModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, MatTableModule} from '@angular/material';
+import { SelecteCellDirective } from './directives/selecte-cell.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendaruiComponent,
-    Calendar2Component
+    GoogleComponent,
+    SelecteCellDirective,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    })
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatTableModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

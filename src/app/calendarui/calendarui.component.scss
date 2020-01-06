@@ -1,25 +1,25 @@
 .wrapper{
   width: 80vw;
-  
+
   .calendar-header-main{
     width: inherit;
-    height: 5vh;
-    margin-left: 18vw;
-    position: fixed;
-    top:0;
     z-index: 2;
-    background-color: white;
     thead{
       color: #353535;
-  
-  
+      th{
+        position:  sticky;
+        top: 0;
+      }
       .header{
-  
-  
+
         .calendar-header{
-          width: 1rem;
+          width: 3rem;
+          height: 5vh;
+          ;
         }
         th{
+
+          background-color: white;
           border-color: transparent;
           width: 10vw;
           .table-header{
@@ -31,6 +31,7 @@
             flex-grow: 1;
             flex-basis: 0;
             border: 0;
+            height: 7vh;
             .table-header-day-week{
               font-size: 0.5rem;
             }
@@ -50,7 +51,6 @@
               }
               .day-month-style:hover{
                 background-color: rgba(173, 173, 173, 0.31);
-  
               }
               .day-month-style-active{
                 background-color: rgba(0, 0, 246, 0.63);
@@ -60,89 +60,48 @@
           }
         }
       }
-      .subheader{
-         width: 0.25rem;
-        .calendar-subheader{
-          height: 1rem;
+      .content{
+        background-color:white;
+        border-bottom: 1px solid #353535;
+        height: 2vh;
+        .content-hours-empty{
+          width: 1.5rem;
           border-bottom: 1px solid #353535;
           border-right: 1px solid #353535;
-          font-size: 0.6rem;
-          font-weight: 400;
-          text-align: center;
         }
-        .subheader-zone{
-          text-align: right;
-          margin-right: 0.2rem;
-          border-bottom: 1px solid #353535;
+        .content-hours{
+          width: 1.5rem;
+          border-bottom: 0px solid #353535;
           border-right: 1px solid #353535;
           font-size: 0.5rem;
           position: relative;
-  
           span{
             position: absolute;
-            left: -2.2rem;
-            top:0;
-            z-index: 2;
+            bottom: 0.3rem;
+            width: 1.5rem;
           }
         }
-      }
-  
-    }
-  
-    
-  }
-  .calendar-content-main{
-    width: inherit;
-    height: 5vh;
-    margin-left: 18vw;
-    position: absolute;
-    top: 9.4vh;
-    z-index: 0;
-    tbody{
-  
-      tr{
-        td{
-          width: 10vw;
-          border: 1px solid grey;
-          height: 6vh;
-        }
-      }
-      .content{
-  
-        .content-hours{
-          width: 1rem;
-          position: relative;
+        .content-hours-data{
           border-bottom: 1px solid #353535;
-          border-left: 0px solid #353535;
-          position: relative;
-          span{
-            position: absolute;
-            font-size: 0.5rem;
-            left: -2rem;
-            top:-0.5rem;
-            z-index: 1;
-          }
-  
-        }
-      }
-      .content:last-child{
-        .content-hours{
-          position: relative;
-          border-bottom: 0px solid #353535;
-          border-left: 0px solid #353535;
-  
-  
-  
+          border-right: 1px solid #353535;
         }
       }
     }
-    
-  }  
-  .calendar-content-main tbody tr:first-child {
-    td{
-      border-top: 0px solid grey;
+    tbody{
+      tr{
+
+        td{
+          border: 1px solid black;
+        }
+      }
     }
-    
+
+
+
+
+
+
   }
-  
+
+
 }
