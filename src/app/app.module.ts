@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendaruiComponent } from './calendarui/calendarui.component';
@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatMenuModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, MatTableModule} from '@angular/material';
 import { SelecteCellDirective } from './directives/selecte-cell.directive';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SelecteCellDirective } from './directives/selecte-cell.directive';
     CalendaruiComponent,
     GoogleComponent,
     SelecteCellDirective,
+    TableComponent,
 
   ],
   imports: [
@@ -27,7 +29,8 @@ import { SelecteCellDirective } from './directives/selecte-cell.directive';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
 
   providers: [],
