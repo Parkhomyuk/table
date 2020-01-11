@@ -1,0 +1,142 @@
+.mat-toolbar{
+  border-bottom: 1px solid lightgrey;
+  position: absolute;
+  z-index: 2;
+  height: 7vh;
+  .button-icon{
+    outline: none;
+    border-radius: 50%;
+    height: 3.5rem;
+    width: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    .mat-icon{
+      font-size: 1.5rem;
+    }
+  }
+  .button-icon:hover{
+    background-color: lightgray;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+}
+
+.example-container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff1f0;
+  .mat-sidenav{
+    width: 10vw;
+  }
+  .test-container {
+    height: 100vh;
+    overflow: auto;
+    table{
+      width: 100%;
+      z-index: 2;
+      thead{
+        color: #353535;
+
+        .header,.content{
+          th{
+            position:  sticky;
+            top: 7vh;
+            background-color: white;
+          }
+          .calendar-header, .content-hours{
+            width: 3%;
+          }
+          .calendar-header-date{
+            border-color: transparent;
+            width: 14%;
+            .table-header{
+              display: flex;
+              flex-direction: column;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              flex-grow: 1;
+              flex-basis: 0;
+              border: 0;
+              height: 7vh;
+              .table-header-day-week{
+                font-size: 0.5rem;
+              }
+              .table-header-day-month{
+                cursor: pointer;
+                font-size: 1.4rem;
+                font-weight: 400;
+                .day-month-style{
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-wrap: nowrap;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 50%;
+                }
+                .day-month-style:hover{
+                  background-color: rgba(173, 173, 173, 0.31);
+                }
+                .day-month-style-active{
+                  background-color: rgba(0, 0, 246, 0.63);
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+        .content{
+          background-color:white;
+          border-bottom: 1px solid #353535;
+          height: 2vh;
+          .content-hours-empty{
+            width: 1.5rem;
+            border-bottom: 1px solid #353535;
+            border-right: 1px solid #353535;
+          }
+          .content-hours{
+            width: 1.5rem;
+            border-bottom: 0px solid #353535;
+            border-right: 1px solid #353535;
+            font-size: 0.5rem;
+            position: relative;
+            span{
+              position: absolute;
+              bottom: 0.3rem;
+              width: 1.5rem;
+            }
+          }
+          .content-hours-data{
+            border-bottom: 1px solid #353535;
+            border-right: 1px solid #353535;
+          }
+        }
+      }
+      tbody{
+        tr{
+
+          td{
+            border: 1px solid black;
+          }
+        }
+      }
+
+
+
+
+
+
+    }
+  }
+
+
+}

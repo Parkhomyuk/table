@@ -1,0 +1,98 @@
+<mat-toolbar>
+
+   <div class="button-icon" (click)="toggleSidnav()">
+     <mat-icon>dehaze</mat-icon>
+   </div>
+
+
+
+</mat-toolbar>
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav mode="side" opened  *ngIf="sidnav" [@enterAnimation]>Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+
+    <div class="test-container mat-elevation-z8">
+     <!-- <table>
+        <thead>
+        <tr class="header" >
+          <th scope="col" class="calendar-header"></th>
+          <th scope="col" *ngFor="let date of weekCurrent.days">
+            <div class="table-header" >
+              <div class="table-header-day-week">{{date.date | date:'EE'}}</div>
+              <div class="table-header-day-month">
+                <div class="day-month-style" [ngClass]="{'day-month-style-active':date.active}" >
+                  {{date.date | date: 'dd'}}
+                </div>
+
+              </div>
+            </div>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let date of weekCurrent.hours ">
+          <td>01.01.2020</td>
+          <td *ngFor="let date of weekCurrent.days ">
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>-->
+
+
+        <table class="calendar-header-main" >
+          <thead  >
+          <tr class="header" >
+            <th scope="col" class="calendar-header"></th>
+            <th scope="col" *ngFor="let date of weekCurrent.days" class="calendar-header-date">
+              <div class="table-header" >
+                <div class="table-header-day-week">{{date.date | date:'EE'}}</div>
+                <div class="table-header-day-month">
+                  <div class="day-month-style" [ngClass]="{'day-month-style-active':date.active}" >
+                    {{date.date | date: 'dd'}}
+                  </div>
+
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr  class="content">
+
+            <th class="calendar-header" >
+
+          <span>
+            GMT+02
+          </span>
+
+            </th>
+
+            <td scope="col" *ngFor="let date of weekCurrent.days; let hour=index" class="content-hours-data" >
+
+            </td>
+          </tr>
+          </thead>
+
+
+          <tbody>
+          <tr *ngFor="let hour of weekCurrent.hours; let i=index" class="content">
+
+            <td class="content-hours"  >
+
+          <span *ngIf="i>0">
+            {{hour | date:'hh a'}}
+          </span>
+
+            </td>
+
+            <td scope="col" *ngFor="let date of weekCurrent.days; let hour=index" class="content-hours-data" style="position: relative">
+              <div *ngFor="let min of weekCurrent.minutesHour" style="width: 100%;height: 0.1vh; "    appSelecteCell id={{min}}></div>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

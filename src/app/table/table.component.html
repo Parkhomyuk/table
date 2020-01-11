@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="loading-shade"
+       *ngIf="isLoadingResults ">
+    <mat-spinner *ngIf="isLoadingResults"  [value]=50></mat-spinner>
+
+  </div>
+  <table mat-table [dataSource]="dataTable" class="mat-elevation-z8" *ngIf="isLoadingResults==false">
+
+
+    <ng-container *ngFor="let item of headerTable" >
+      <ng-container matColumnDef={{item}} *ngIf="item=='#'" sticky>
+        <th mat-header-cell *matHeaderCellDef> {{item}} </th>
+        <td mat-cell *matCellDef="let element; let i=index;">
+          <ng-container *ngIf="item == '#'; then first else others"></ng-container>
+          <ng-template #first>{{element.position}}</ng-template>
+          <ng-template #others>{{element[item]}}</ng-template>
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef={{item}} *ngIf="item!='#'">
+        <th mat-header-cell *matHeaderCellDef> {{item}} </th>
+        <td mat-cell *matCellDef="let element; let i=index;">
+          <ng-container *ngIf="item == '#'; then first else others"></ng-container>
+          <ng-template #first>{{i}}</ng-template>
+          <ng-template #others>{{element[item]}}</ng-template>
+
+        </td>
+      </ng-container>
+
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="headerTable; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: headerTable;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[15, 30, 50]" showFirstLastButtons></mat-paginator>
+  <div class="left-side-bar">
+bvcvbvcbv
+  </div>
+</div>

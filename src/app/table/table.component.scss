@@ -1,0 +1,31 @@
+.wrapper{
+  width: 100vw;
+  height: auto;
+  position: relative;
+  padding-top: 2vh;
+  table {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2vh;
+    th, td{
+      padding: 0 2rem;
+      border-right: 0.15px solid rgba(211, 211, 211, 0.47);
+    }
+
+  }
+  .loading-shade{
+     width: 30%;
+     margin-left: 50vw;
+     margin-top: 40vh ;
+    position: fixed;
+  }
+  .left-side-bar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 5vw;
+    height: inherit;
+    background-color: grey;
+    z-index: 1000;
+  }
+}
