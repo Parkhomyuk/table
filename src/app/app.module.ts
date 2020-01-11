@@ -11,6 +11,10 @@ import {MatMenuModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSide
 import { SelecteCellDirective } from './directives/selecte-cell.directive';
 import { TableComponent } from './table/table.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +33,11 @@ import { TableComponent } from './table/table.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+
   ],
 
   providers: [],
